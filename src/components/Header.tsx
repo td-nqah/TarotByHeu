@@ -36,33 +36,11 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={onGoHome}
           className="group flex items-center gap-2.5 text-left transition-opacity hover:opacity-90"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#C9A96E]/35 bg-[#C9A96E]/10 text-[#C9A96E]">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4.5 w-4.5"
-              aria-hidden="true"
-            >
-              <rect
-                x="5"
-                y="2.5"
-                width="14"
-                height="19"
-                rx="2.2"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M13.6 7.4a4.2 4.2 0 1 0 3 6.9 3.4 3.4 0 0 1-3-6.9Z"
-                fill="currentColor"
-              />
-              <path
-                d="M12 14.3l.65 1.55 1.55.65-1.55.65L12 18.7l-.65-1.55-1.55-.65 1.55-.65L12 14.3Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
+          <img
+            src="/logo.webp"
+            alt="TarotByHeu"
+            className="h-9 w-9 rounded-full border border-[#C9A96E]/50 object-cover shadow-sm"
+          />
           <div>
             <span className="font-serif text-lg font-semibold tracking-tight text-[#F4F1EA]">
               TarotByHeu
