@@ -329,16 +329,11 @@ function buildCardInterpretation(drawn: DrawnCard, spread: SpreadDefinition): st
   const keywords = isReversed ? card.reversed : card.upright;
 
   let text = `**${position.title} — ${card.nameVi} (${card.nameEn} · ${orientationLabel})**\n`;
-  text += `- *Từ khóa & Hình ảnh:* ${keywords.join(', ')}.${card.imagery ? ` *(Biểu tượng RWS: ${card.imagery})*` : ''}\n`;
-
-  if (card.warning) {
-    text += `- *Lưu ý ẩn dụ:* ${card.warning}\n`;
-  }
 
   if (isReversed) {
-    text += `- *Ý nghĩa tại vị trí:* Ở **${position.title}** (${position.description.toLowerCase()}), thế ngược gợi ý năng lượng của *${card.nameVi}* đang bị chậm lại, hướng vào bên trong hoặc cần bạn gỡ nút thắt quanh **${keywords[0]}**.`;
+    text += `- *Ý nghĩa:* Ở **${position.title}** (${position.description.toLowerCase()}), thế ngược gợi ý năng lượng của *${card.nameVi}* đang bị chậm lại, hướng vào bên trong hoặc cần bạn gỡ nút thắt quanh **${keywords[0]}**.`;
   } else {
-    text += `- *Ý nghĩa tại vị trí:* Tại **${position.title}** (${position.description.toLowerCase()}), lá bài gợi mở xu hướng xoay quanh **${keywords[0]}** và **${keywords[1] ?? keywords[0]}**.`;
+    text += `- *Ý nghĩa:* Tại **${position.title}** (${position.description.toLowerCase()}), lá bài gợi mở xu hướng xoay quanh **${keywords[0]}** và **${keywords[1] ?? keywords[0]}**.`;
   }
 
   if (spread.id === 'love' && card.loveHint) {
@@ -347,6 +342,12 @@ function buildCardInterpretation(drawn: DrawnCard, spread: SpreadDefinition): st
     text += ` Trong công việc: ${card.careerHint.toLowerCase()}`;
   } else if (card.adviceHint) {
     text += ` ${card.adviceHint}`;
+  }
+
+  text += `\n- *Từ khóa & Hình ảnh:* ${keywords.join(', ')}.${card.imagery ? ` *(Biểu tượng RWS: ${card.imagery})*` : ''}`;
+
+  if (card.warning) {
+    text += `\n- *Lưu ý ẩn dụ:* ${card.warning}`;
   }
 
   return text;
