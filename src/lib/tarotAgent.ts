@@ -312,12 +312,18 @@ function analyzeHolistic(drawnCards: DrawnCard[]): HolisticAnalysis {
       ) && !d.isReversed
     ) ?? drawnCards.find((d) => !d.isReversed);
 
+  const wrapBrackets = (text: string) => (text.includes('(') ? `[${text}]` : `(${text})`);
+
   const tensionPoint = challenging
-    ? `**Điểm căng:** Lá **${challenging.card.nameVi}** (${challenging.position.title}${challenging.isReversed ? ' · Ngược' : ''}) cho thấy áp lực hoặc điểm nghẽn quanh *${(challenging.isReversed ? challenging.card.reversed : challenging.card.upright)[0]}*.`
+    ? `**Điểm căng:** Lá **${challenging.card.nameVi}** ${wrapBrackets(
+        `${challenging.position.title}${challenging.isReversed ? ' · Ngược' : ''}`
+      )} cho thấy áp lực hoặc điểm nghẽn quanh *${(challenging.isReversed ? challenging.card.reversed : challenging.card.upright)[0]}*.`
     : '**Điểm căng:** Bài không xuất hiện xung đột gai góc, nhưng sự chênh nhịp giữa kỳ vọng và tốc độ thực tế vẫn cần bạn kiên nhẫn điều chỉnh.';
 
   const opportunityPoint = bright
-    ? `**Điểm sáng:** Lá **${bright.card.nameVi}** (${bright.position.title}) mở ra cơ hội và điểm tựa quanh *${bright.card.upright[0]}*${bright.card.adviceHint ? ` — ${bright.card.adviceHint.toLowerCase()}` : '.'}`
+    ? `**Điểm sáng:** Lá **${bright.card.nameVi}** ${wrapBrackets(
+        bright.position.title
+      )} mở ra cơ hội và điểm tựa quanh *${bright.card.upright[0]}*${bright.card.adviceHint ? ` — ${bright.card.adviceHint.toLowerCase()}` : '.'}`
     : '**Điểm sáng:** Ngay cả khi các lá mang sắc thái thử thách hoặc ngược, điều đó giúp bạn nhìn rõ vấn đề trước khi dấn sâu thêm.';
 
   return { overviewBullets, tensionPoint, opportunityPoint, storyArc };

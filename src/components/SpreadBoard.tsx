@@ -69,7 +69,7 @@ const CardSlot: React.FC<CardSlotProps> = ({ drawn, compact, onReveal, onInspect
             />
             <div className="absolute inset-x-0 top-0 flex justify-between p-1.5">
               {isReversed ? (
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#0B0B0E]/85 px-2 py-0.5 text-[10px] font-medium text-amber-300 backdrop-blur-sm">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#0B0B0E]/85 px-2 py-0.5 text-[10px] font-medium text-[#E5C88F] backdrop-blur-sm">
                   <RotateCw className="h-2.5 w-2.5" />
                   Ngược
                 </span>

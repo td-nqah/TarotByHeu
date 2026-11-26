@@ -46,7 +46,7 @@ export const CardDetailModal: React.FC<CardDetailModalProps> = ({
               />
             </div>
             {isReversed && (
-              <p className="mt-2 flex items-center justify-center gap-1 text-xs font-medium text-amber-300">
+              <p className="mt-2 flex items-center justify-center gap-1 text-xs font-medium text-[#E5C88F]">
                 <RotateCw className="h-3 w-3" />
                 Đang ở chiều Ngược
               </p>
@@ -90,14 +90,18 @@ export const CardDetailModal: React.FC<CardDetailModalProps> = ({
                 <h3 className="mb-1 text-xs font-semibold tracking-wider text-[#C9A96E] uppercase">
                   Ý nghĩa Xuôi (Upright)
                 </h3>
-                <p className="text-[#D8D4CA]">{card.upright.join(' · ')}</p>
+                <p className="ml-[1cm] text-[#D8D4CA]">
+                  - {card.upright.join(' · ').replace(/^./, (c) => c.toUpperCase())}
+                </p>
               </div>
 
               <div>
-                <h3 className="mb-1 text-xs font-semibold tracking-wider text-amber-300/90 uppercase">
+                <h3 className="mb-1 text-xs font-semibold tracking-wider text-[#C9A96E] uppercase">
                   Ý nghĩa Ngược (Reversed)
                 </h3>
-                <p className="text-[#D8D4CA]">{card.reversed.join(' · ')}</p>
+                <p className="ml-[1cm] text-[#D8D4CA]">
+                  - {card.reversed.join(' · ').replace(/^./, (c) => c.toUpperCase())}
+                </p>
               </div>
 
               {(card.imagery || card.loveHint || card.careerHint || card.moneyHint || card.adviceHint || card.reflectionQuestion) && (
