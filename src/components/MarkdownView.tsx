@@ -127,7 +127,10 @@ export const MarkdownView: React.FC<MarkdownViewProps> = ({ content }) => {
     if (line.startsWith('- ') || line.startsWith('* ') || /^\d+\.\s/.test(line)) {
       const contentText = line.replace(/^(-|\*|\d+\.)\s+/, '');
       listItems.push(
-        <li key={`li-${key++}`} className="relative pl-3 before:absolute before:top-2 before:left-0 before:h-1 before:w-1 before:rounded-full before:bg-[#C9A96E]/70">
+        <li
+          key={`li-${key++}`}
+          className="relative pl-4 before:absolute before:top-0 before:left-0 before:text-[#C9A96E]/85 before:content-['-']"
+        >
           {renderInline(contentText)}
         </li>
       );

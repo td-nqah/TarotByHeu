@@ -76,6 +76,10 @@
   letter-spacing: -0.01em;
 }
 
+.tarot-prose > :not(h2):not(h3):not(hr) {
+  margin-left: 1cm;
+}
+
 .tarot-prose strong {
   color: #e6cfa3;
   font-weight: 600;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, Loader2, RefreshCw, Send, Sparkles } from 'lucide-react';
+import { Loader2, RefreshCw, Send, Sparkles } from 'lucide-react';
 import type { AISettings, ChatMessage } from '../types/tarot';
 import { MarkdownView } from './MarkdownView';
 
@@ -52,8 +52,20 @@ export const ReadingPanel: React.FC<ReadingPanelProps> = ({
     <div className="rounded-2xl border border-white/[0.08] bg-[#131318] p-5 sm:p-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.06] pb-4">
         <div className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#C9A96E]/40 bg-[#C9A96E]/10 text-[#C9A96E]">
-            <Bot className="h-4 w-4" />
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#C9A96E]/40 bg-[#C9A96E]/10">
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="tarot-ai-star" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#1D7AFC" />
+                  <stop offset="60%" stopColor="#6E7BF2" />
+                  <stop offset="100%" stopColor="#9B7DF5" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M12 2C12.6 8.2 15.8 11.4 22 12C15.8 12.6 12.6 15.8 12 22C11.4 15.8 8.2 12.6 2 12C8.2 11.4 11.4 8.2 12 2Z"
+                fill="url(#tarot-ai-star)"
+              />
+            </svg>
           </span>
           <div>
             <h3 className="font-serif text-lg font-medium text-[#F4F1EA]">
